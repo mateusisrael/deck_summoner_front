@@ -1,13 +1,33 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Home from './pages/Home';
+import Login from './pages/Login'
 import reportWebVitals from './reportWebVitals';
+import Private from './private';
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Redirect
+} from 'react-router-dom'
+
+
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Switch>
+      <Route exact path="/login" component={Login}/>
+      <Route exact path="/" component={(props) => (
+        <Private {...props}>
+          {() => (
+            <Home {...props}/>
+          )}
+        </Private>
+      )} />
+    </Switch>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
