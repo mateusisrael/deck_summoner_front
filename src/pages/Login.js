@@ -14,6 +14,8 @@ const Form = styled.form`
 `;
 
 function App() {
+  const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
+  console.log(API_ENDPOINT);
   const [redirect, setRedirect] = useState(false)
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -23,7 +25,7 @@ function App() {
   }
 
   const handleLogin = async (email, passwd) => {
-    const request = await axios.post('http://localhost:3001/login', {
+    const request = await axios.post(`${API_ENDPOINT}/login`, {
       email: email,
       password: passwd
     });

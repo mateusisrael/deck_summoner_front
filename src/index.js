@@ -5,20 +5,21 @@ import Home from './pages/Home';
 import Login from './pages/Login'
 import reportWebVitals from './reportWebVitals';
 import Private from './private';
+import {config} from 'dotenv';
 import {
   BrowserRouter,
   Switch,
   Route,
   Redirect
 } from 'react-router-dom'
-
+config();
 
 
 
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route exact path="/login" component={Login}/>
+      <Route exact path="/login" component={props => <Login {...props}/>}/>
       <Route exact path="/" component={(props) => (
         <Private {...props}>
           {() => (

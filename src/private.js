@@ -8,10 +8,10 @@ class Private extends React.Component{
   }
 
   getToken = () => {
-    const deckData = JSON.parse(window.localStorage.getItem('deck'));
-    const token = deckData['jwttoken'];
-    if(token) return true;
-    return false
+    const credentials = window.localStorage.getItem('deck');
+    if(credentials) return true
+    return false;
+
   }
 
   render() {
