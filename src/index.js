@@ -23,7 +23,7 @@ ReactDOM.render(
       <Route exact path="/" component={(props) => (
         <Private {...props}>
           {() => (
-            <Home {...props}/>
+            <Home/>
           )}
         </Private>
       )} />
